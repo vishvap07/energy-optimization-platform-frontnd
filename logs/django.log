@@ -1,0 +1,863 @@
+WARNING 2026-03-11 10:59:02,530 log Forbidden: /api/monitoring/logs
+WARNING 2026-03-11 10:59:02,553 log Forbidden: /api/monitoring/logs
+ERROR 2026-03-11 11:01:22,027 log Internal Server Error: /api/chatbot/query
+Traceback (most recent call last):
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: chat_sessions.session_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\chatbot\views.py", line 70, in query_chatbot
+    ChatSession.objects.create(
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: chat_sessions.session_id
+ERROR 2026-03-11 11:01:28,215 log Internal Server Error: /api/chatbot/query
+Traceback (most recent call last):
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: chat_sessions.session_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\chatbot\views.py", line 70, in query_chatbot
+    ChatSession.objects.create(
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: chat_sessions.session_id
+ERROR 2026-03-11 11:01:31,690 log Internal Server Error: /api/chatbot/query
+Traceback (most recent call last):
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: chat_sessions.session_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\chatbot\views.py", line 70, in query_chatbot
+    ChatSession.objects.create(
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: chat_sessions.session_id
+ERROR 2026-03-11 11:01:41,180 log Internal Server Error: /api/chatbot/query
+Traceback (most recent call last):
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: chat_sessions.session_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\chatbot\views.py", line 70, in query_chatbot
+    ChatSession.objects.create(
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: chat_sessions.session_id
+WARNING 2026-03-11 11:21:41,834 log Method Not Allowed: /api/auth/profile
+WARNING 2026-03-11 11:22:45,163 log Method Not Allowed: /api/auth/profile
+WARNING 2026-03-11 11:23:09,741 log Forbidden: /api/monitoring/logs
+WARNING 2026-03-11 11:23:09,754 log Forbidden: /api/monitoring/logs
+INFO 2026-03-11 11:26:13,264 autoreload Watching for file changes with StatReloader
+INFO 2026-03-11 11:26:19,114 autoreload C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\authentication\urls.py changed, reloading.
+INFO 2026-03-11 11:26:19,803 autoreload Watching for file changes with StatReloader
+INFO 2026-03-11 11:32:30,001 autoreload C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\monitoring\models.py changed, reloading.
+INFO 2026-03-11 11:32:30,984 autoreload Watching for file changes with StatReloader
+WARNING 2026-03-11 11:38:57,545 log Unauthorized: /api/auth/login/
+WARNING 2026-03-11 11:40:22,606 log Unauthorized: /api/auth/login/
+WARNING 2026-03-11 11:41:41,053 log Unauthorized: /api/auth/login/
+WARNING 2026-03-11 12:02:21,001 log Unauthorized: /api/energy/analytics
+WARNING 2026-03-11 12:02:21,001 log Unauthorized: /api/energy/data
+WARNING 2026-03-11 12:02:21,015 log Not Found: /api/monitoring/logs/
+WARNING 2026-03-11 12:03:31,884 log Unauthorized: /api/auth/login/
+WARNING 2026-03-11 12:03:53,631 log Unauthorized: /api/auth/login/
+WARNING 2026-03-11 12:04:04,543 log Not Found: /api/monitoring/logs/
+WARNING 2026-03-11 12:04:04,565 log Not Found: /api/monitoring/logs/
+WARNING 2026-03-11 12:04:23,858 log Not Found: /api/monitoring/system-health/
+WARNING 2026-03-11 12:04:23,893 log Not Found: /api/monitoring/system-health/
+WARNING 2026-03-11 12:04:24,851 log Not Found: /api/monitoring/logs/
+WARNING 2026-03-11 12:04:24,864 log Not Found: /api/monitoring/logs/
+WARNING 2026-03-11 12:04:26,000 log Not Found: /api/monitoring/system-health/
+WARNING 2026-03-11 12:04:26,044 log Not Found: /api/monitoring/system-health/
+WARNING 2026-03-11 12:04:38,996 log Not Found: /api/monitoring/logs/
+WARNING 2026-03-11 12:04:39,041 log Not Found: /api/monitoring/logs/
+WARNING 2026-03-11 12:04:48,362 log Unauthorized: /api/auth/login/
+WARNING 2026-03-11 12:05:26,164 log Not Found: /api/monitoring/logs/
+WARNING 2026-03-11 12:05:26,181 log Not Found: /api/monitoring/logs/
+WARNING 2026-03-11 12:06:01,971 log Not Found: /api/monitoring/system-health/
+WARNING 2026-03-11 12:06:02,004 log Not Found: /api/monitoring/system-health/
+WARNING 2026-03-11 12:06:04,330 log Not Found: /api/monitoring/logs/
+WARNING 2026-03-11 12:06:04,351 log Not Found: /api/monitoring/logs/
+WARNING 2026-03-11 12:06:05,897 log Not Found: /api/monitoring/system-health/
+WARNING 2026-03-11 12:06:05,920 log Not Found: /api/monitoring/system-health/
+WARNING 2026-03-11 12:07:06,101 log Unauthorized: /api/auth/login/
+WARNING 2026-03-11 12:09:18,847 log Not Found: /api/monitoring/logs/
+WARNING 2026-03-11 12:09:18,874 log Not Found: /api/monitoring/logs/
+WARNING 2026-03-11 12:09:39,451 log Not Found: /api/monitoring/logs/
+WARNING 2026-03-11 12:09:39,668 log Not Found: /favicon.ico
+WARNING 2026-03-11 12:09:56,458 log Unauthorized: /api/monitoring/logs
+WARNING 2026-03-11 12:10:06,899 log Not Found: /api/monitoring/logs/
+WARNING 2026-03-11 12:10:28,799 log Not Found: /api/monitoring/logs/
+WARNING 2026-03-11 12:10:28,834 log Not Found: /api/monitoring/logs/
+INFO 2026-03-11 12:11:35,741 autoreload C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\monitoring\urls.py changed, reloading.
+INFO 2026-03-11 12:11:37,884 autoreload Watching for file changes with StatReloader
+WARNING 2026-03-11 12:12:21,546 log Unauthorized: /api/monitoring/logs/
+WARNING 2026-03-11 12:12:37,269 log Not Found: /api/monitoring/
+INFO 2026-03-11 14:26:35,294 autoreload C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\analytics\views.py changed, reloading.
+INFO 2026-03-11 14:26:36,549 autoreload Watching for file changes with StatReloader
+INFO 2026-03-11 14:27:23,812 autoreload C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\analytics\urls.py changed, reloading.
+INFO 2026-03-11 14:27:24,623 autoreload Watching for file changes with StatReloader
+WARNING 2026-03-12 09:16:48,474 log Not Found: /admin/analytics/energydata/
+WARNING 2026-03-12 09:18:28,100 log Not Found: /admin/analytics/
+WARNING 2026-03-12 09:18:35,390 log Not Found: /
+WARNING 2026-03-12 09:18:41,683 log Not Found: /admin/tickets/ticket/
+WARNING 2026-03-12 09:18:49,963 log Not Found: /api/
+WARNING 2026-03-12 09:18:57,044 log Not Found: /admin/auth/user/
+WARNING 2026-03-13 08:08:52,868 log Unauthorized: /api/auth/login/
+WARNING 2026-03-14 08:42:45,458 log Not Found: /favicon.ico
+INFO 2026-03-14 08:46:20,527 autoreload C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\authentication\serializers.py changed, reloading.
+INFO 2026-03-14 08:46:22,134 autoreload Watching for file changes with StatReloader
+INFO 2026-03-14 08:51:46,182 autoreload Watching for file changes with StatReloader
+INFO 2026-03-14 08:59:50,895 autoreload C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\monitoring\admin.py changed, reloading.
+INFO 2026-03-14 08:59:52,230 autoreload Watching for file changes with StatReloader
+WARNING 2026-03-14 09:00:02,770 log Not Found: /favicon.ico
+INFO 2026-03-14 21:15:50,677 autoreload C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\chatbot\views.py changed, reloading.
+INFO 2026-03-14 21:15:52,061 autoreload Watching for file changes with StatReloader
+WARNING 2026-03-14 22:29:59,589 log Unauthorized: /api/energy/peak-demand
+WARNING 2026-03-14 22:30:00,159 log Unauthorized: /api/energy/analytics
+WARNING 2026-03-14 22:30:00,241 log Unauthorized: /api/energy/peak-demand
+WARNING 2026-03-14 22:30:00,294 log Unauthorized: /api/energy/analytics
+WARNING 2026-03-20 07:49:22,247 log Unauthorized: /api/energy/analytics
+WARNING 2026-03-20 07:49:22,632 log Not Found: /api/chatbot/query/
+WARNING 2026-03-20 07:49:23,029 log Not Found: /api/chatbot/query/
+WARNING 2026-03-20 07:49:23,364 log Not Found: /api/chatbot/query/
+WARNING 2026-03-20 07:54:43,229 log Unauthorized: /api/energy/analytics
+WARNING 2026-03-20 07:54:43,500 log Not Found: /api/chatbot/query/
+WARNING 2026-03-20 07:54:43,745 log Not Found: /api/chatbot/query/
+WARNING 2026-03-20 07:54:43,982 log Not Found: /api/chatbot/query/
+WARNING 2026-03-20 07:55:04,204 log Unauthorized: /api/energy/analytics
+WARNING 2026-03-20 07:55:04,450 log Not Found: /api/chatbot/query/
+WARNING 2026-03-20 07:55:04,690 log Not Found: /api/chatbot/query/
+WARNING 2026-03-20 07:55:04,929 log Not Found: /api/chatbot/query/
+WARNING 2026-03-20 08:06:57,550 log Unauthorized: /api/energy/analytics
+WARNING 2026-03-20 08:06:57,795 log Not Found: /api/chatbot/query/
+WARNING 2026-03-20 08:11:23,173 log Unauthorized: /api/energy/analytics
+WARNING 2026-03-20 08:11:23,440 log Not Found: /api/chatbot/query/
+WARNING 2026-03-20 08:15:45,155 log Unauthorized: /api/energy/analytics
+WARNING 2026-03-20 08:15:45,423 log Not Found: /api/chatbot/query/
+WARNING 2026-03-20 08:15:45,663 log Not Found: /api/chatbot/query/
+WARNING 2026-03-20 08:15:45,914 log Not Found: /api/chatbot/query/
+WARNING 2026-03-20 08:17:46,199 log Unauthorized: /api/energy/analytics
+WARNING 2026-03-20 08:17:46,452 log Not Found: /api/chat/query/
+WARNING 2026-03-20 08:18:46,903 log Unauthorized: /api/energy/analytics
+WARNING 2026-03-20 08:18:47,178 log Not Found: /api/chat/query/
+WARNING 2026-03-20 08:18:47,432 log Not Found: /api/chat/query/
+WARNING 2026-03-20 08:18:47,710 log Not Found: /api/chat/query/
+WARNING 2026-03-20 08:19:37,029 log Unauthorized: /api/energy/analytics
+WARNING 2026-03-20 08:19:37,922 log Bad Request: /api/chatbot/query
+INFO 2026-03-21 09:08:27,485 autoreload Watching for file changes with StatReloader
+WARNING 2026-03-21 09:16:30,992 log Unauthorized: /api/auth/login/
+WARNING 2026-03-21 09:17:51,808 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-03-21 09:17:51,808 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-03-21 09:22:26,581 log Unauthorized: /api/auth/login/
+ERROR 2026-03-21 09:26:42,434 log Internal Server Error: /api/chatbot/query
+Traceback (most recent call last):
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: chat_sessions.session_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\chatbot\views.py", line 93, in query_chatbot
+    ChatSession.objects.create(
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: chat_sessions.session_id
+ERROR 2026-03-21 09:27:14,816 log Internal Server Error: /api/chatbot/query
+Traceback (most recent call last):
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: chat_sessions.session_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\chatbot\views.py", line 93, in query_chatbot
+    ChatSession.objects.create(
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: chat_sessions.session_id
+WARNING 2026-03-21 09:29:15,613 log Unauthorized: /api/chatbot/query
+ERROR 2026-03-21 10:02:26,365 log Internal Server Error: /api/chatbot/query
+Traceback (most recent call last):
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sqlite3.IntegrityError: UNIQUE constraint failed: chat_sessions.session_id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\views\decorators\csrf.py", line 56, in wrapper_view
+    return view_func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\rest_framework\decorators.py", line 50, in handler
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\chatbot\views.py", line 93, in query_chatbot
+    ChatSession.objects.create(
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 658, in create
+    obj.save(force_insert=True, using=self.db)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 814, in save
+    self.save_base(
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 877, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1020, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\base.py", line 1061, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\query.py", line 1805, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\models\sql\compiler.py", line 1822, in execute_sql
+    cursor.execute(sql, params)
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 102, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 67, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 80, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 84, in _execute
+    with self.db.wrap_database_errors:
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\utils.py", line 89, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\vishv\AppData\Roaming\Python\Python312\site-packages\django\db\backends\sqlite3\base.py", line 328, in execute
+    return super().execute(query, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: UNIQUE constraint failed: chat_sessions.session_id
+INFO 2026-03-21 10:03:14,204 autoreload C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\chatbot\models.py changed, reloading.
+INFO 2026-03-21 10:03:16,335 autoreload Watching for file changes with StatReloader
+WARNING 2026-03-21 11:51:55,711 log Unauthorized: /api/energy/analytics
+WARNING 2026-03-21 11:51:57,119 log Bad Request: /api/chatbot/query
+WARNING 2026-03-21 14:07:46,683 log Unauthorized: /api/energy/analytics
+WARNING 2026-03-21 14:07:46,683 log Unauthorized: /api/energy/data
+WARNING 2026-03-21 14:07:46,683 log Unauthorized: /api/energy/alerts/
+WARNING 2026-03-21 14:07:47,434 log Unauthorized: /api/energy/analytics
+WARNING 2026-03-21 14:07:47,437 log Unauthorized: /api/energy/data
+WARNING 2026-03-21 14:07:47,444 log Unauthorized: /api/energy/alerts/
+WARNING 2026-03-21 15:10:17,417 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-03-21 15:10:17,417 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-03-21 15:10:17,417 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-03-21 15:10:17,417 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-03-21 15:26:42,064 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-03-21 15:26:42,128 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-03-21 17:11:24,590 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-03-21 17:11:24,638 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-03-21 17:33:10,528 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-03-21 17:33:10,594 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-03-22 22:22:51,104 log Unauthorized: /api/energy/alerts/
+WARNING 2026-03-22 22:22:51,109 log Unauthorized: /api/energy/data
+WARNING 2026-03-22 22:22:51,136 log Unauthorized: /api/energy/analytics
+WARNING 2026-03-22 22:22:51,403 log Unauthorized: /api/energy/data
+WARNING 2026-03-22 22:22:51,433 log Unauthorized: /api/energy/alerts/
+WARNING 2026-03-22 22:22:51,449 log Unauthorized: /api/energy/analytics
+WARNING 2026-03-22 22:23:07,878 log Unauthorized: /api/energy/analytics
+WARNING 2026-03-22 22:23:07,932 log Unauthorized: /api/energy/data
+WARNING 2026-03-22 22:23:07,989 log Unauthorized: /api/energy/alerts/
+INFO 2026-03-31 11:45:40,502 autoreload Watching for file changes with StatReloader
+INFO 2026-03-31 11:53:16,124 autoreload Watching for file changes with StatReloader
+WARNING 2026-03-31 11:53:40,283 log Unauthorized: /api/auth/profile/
+WARNING 2026-03-31 11:53:40,308 log Unauthorized: /api/auth/profile/
+WARNING 2026-03-31 11:56:28,449 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-03-31 11:56:28,449 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-03-31 11:56:28,449 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-03-31 11:56:28,449 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-03-31 12:04:16,484 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-03-31 12:04:16,511 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-03-31 12:07:15,645 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-03-31 12:07:15,666 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-03-31 12:27:58,950 log Not Found: /favicon.ico
+WARNING 2026-03-31 12:29:44,467 log Not Found: /admin/api/energy
+WARNING 2026-03-31 12:29:53,605 log Unauthorized: /api/energy/export/
+WARNING 2026-03-31 12:30:04,007 log Unauthorized: /api/energy/export/
+WARNING 2026-03-31 12:30:06,617 log Unauthorized: /api/energy/export/
+INFO 2026-04-03 08:48:05,104 autoreload Watching for file changes with StatReloader
+WARNING 2026-04-03 08:49:56,190 log Not Found: /
+WARNING 2026-04-03 08:49:56,279 log Not Found: /favicon.ico
+WARNING 2026-04-03 08:50:10,178 log Unauthorized: /api/auth/profile/
+WARNING 2026-04-03 08:50:10,201 log Unauthorized: /api/auth/profile/
+WARNING 2026-04-03 08:51:49,495 log Unauthorized: /api/auth/login/
+WARNING 2026-04-03 08:52:11,892 log Unauthorized: /api/auth/login/
+WARNING 2026-04-03 08:55:31,350 log Unauthorized: /api/auth/login/
+INFO 2026-04-03 08:59:08,770 autoreload C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\analytics\views.py changed, reloading.
+INFO 2026-04-03 08:59:09,788 autoreload Watching for file changes with StatReloader
+INFO 2026-04-03 09:14:33,323 autoreload C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\analytics\views.py changed, reloading.
+INFO 2026-04-03 09:14:34,464 autoreload Watching for file changes with StatReloader
+WARNING 2026-04-03 09:23:06,310 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-03 09:35:15,869 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-03 09:35:15,902 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-03 09:40:49,149 log Unauthorized: /api/auth/login/
+WARNING 2026-04-03 09:42:51,974 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-03 09:42:52,012 views LSTM model not found — forecasting will use synthetic fallback.
+INFO 2026-04-03 09:46:28,113 autoreload C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\optimization\views.py changed, reloading.
+INFO 2026-04-03 09:46:33,036 autoreload Watching for file changes with StatReloader
+WARNING 2026-04-03 09:49:46,202 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-03 09:49:46,202 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-03 09:49:46,220 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-03 09:49:46,232 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-03 10:39:52,166 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-03 10:39:52,191 views LSTM model not found — forecasting will use synthetic fallback.
+INFO 2026-04-04 10:17:55,680 autoreload Watching for file changes with StatReloader
+WARNING 2026-04-04 10:45:39,735 log Unauthorized: /api/auth/login/
+WARNING 2026-04-04 10:46:05,004 log Unauthorized: /api/auth/login/
+WARNING 2026-04-04 10:46:27,938 log Unauthorized: /api/auth/login/
+WARNING 2026-04-04 11:40:57,800 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-04 11:40:57,800 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-04 11:40:57,800 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-04 11:40:57,800 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-04 13:38:36,837 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-04 13:38:36,867 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-04 14:58:28,318 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-04 14:58:28,371 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-04 15:49:09,448 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-04 15:49:09,487 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-04 16:36:09,765 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-04 16:36:09,811 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-04 18:43:03,659 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-04 18:43:03,688 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-04 20:14:05,927 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-04 20:14:05,945 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-04 20:23:05,663 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-04 20:23:05,681 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-05 14:24:47,373 log Unauthorized: /api/auth/profile/
+WARNING 2026-04-05 14:24:47,398 log Unauthorized: /api/auth/profile/
+WARNING 2026-04-05 14:25:21,188 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-05 14:25:21,339 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-05 14:25:28,664 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-05 14:25:29,097 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-05 14:25:34,440 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-05 14:25:34,636 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-05 14:32:06,351 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-05 14:32:06,381 views LSTM model not found — forecasting will use synthetic fallback.
+WARNING 2026-04-06 08:59:21,988 config TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING 2026-04-06 08:59:21,992 saving_utils Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+INFO 2026-04-06 08:59:22,014 views LSTM PredictionService loaded successfully.
+WARNING 2026-04-06 09:00:18,145 config TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING 2026-04-06 09:00:18,150 saving_utils Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+INFO 2026-04-06 09:00:18,155 views LSTM PredictionService loaded successfully.
+INFO 2026-04-06 09:17:07,562 autoreload Watching for file changes with StatReloader
+WARNING 2026-04-06 09:19:14,472 log Unauthorized: /api/auth/login/
+WARNING 2026-04-06 09:19:41,086 log Unauthorized: /api/auth/login/
+WARNING 2026-04-06 09:20:07,319 log Unauthorized: /api/auth/login/
+WARNING 2026-04-06 09:21:05,245 config TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING 2026-04-06 09:21:05,253 saving_utils Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+INFO 2026-04-06 09:21:05,267 views LSTM PredictionService loaded successfully.
+INFO 2026-04-06 09:38:29,577 autoreload C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\forecasting\views.py changed, reloading.
+INFO 2026-04-06 09:38:31,057 autoreload Watching for file changes with StatReloader
+WARNING 2026-04-06 09:47:39,243 log Unauthorized: /api/auth/profile/
+WARNING 2026-04-06 09:47:39,254 log Unauthorized: /api/auth/profile/
+WARNING 2026-04-06 10:06:16,347 config TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING 2026-04-06 10:06:16,347 config TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING 2026-04-06 10:06:16,354 saving_utils Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+WARNING 2026-04-06 10:06:16,354 saving_utils Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+INFO 2026-04-06 10:06:16,370 views LSTM PredictionService loaded successfully.
+INFO 2026-04-06 10:06:16,372 views LSTM PredictionService loaded successfully.
+INFO 2026-04-06 10:50:00,008 autoreload C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\optimization\views.py changed, reloading.
+INFO 2026-04-06 10:50:01,730 autoreload Watching for file changes with StatReloader
+INFO 2026-04-06 10:50:06,916 autoreload C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\chatbot\views.py changed, reloading.
+INFO 2026-04-06 10:50:07,627 autoreload Watching for file changes with StatReloader
+WARNING 2026-04-06 10:52:06,866 config TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING 2026-04-06 10:52:06,868 saving_utils Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+INFO 2026-04-06 10:52:06,875 views LSTM PredictionService loaded successfully.
+WARNING 2026-04-06 10:55:30,913 log Unauthorized: /api/auth/login/
+WARNING 2026-04-06 10:57:32,981 log Unauthorized: /api/auth/login/
+INFO 2026-04-06 11:16:28,420 autoreload C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\analytics\views.py changed, reloading.
+INFO 2026-04-06 11:16:30,012 autoreload Watching for file changes with StatReloader
+WARNING 2026-04-06 11:29:18,283 config TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING 2026-04-06 11:29:18,286 saving_utils Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+INFO 2026-04-06 11:29:18,298 views LSTM PredictionService loaded successfully.
+INFO 2026-04-06 14:13:47,946 autoreload C:\Users\vishv\.gemini\antigravity\scratch\energy-optimization-platform\backend\apps\analytics\views.py changed, reloading.
+INFO 2026-04-06 14:13:51,433 autoreload Watching for file changes with StatReloader
+WARNING 2026-04-06 14:23:18,974 config TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING 2026-04-06 14:23:18,974 config TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING 2026-04-06 14:23:18,990 saving_utils Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+WARNING 2026-04-06 14:23:18,990 saving_utils Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+INFO 2026-04-06 14:23:19,016 views LSTM PredictionService loaded successfully.
+INFO 2026-04-06 14:23:19,016 views LSTM PredictionService loaded successfully.
+INFO 2026-04-07 08:18:43,653 autoreload Watching for file changes with StatReloader
+WARNING 2026-04-07 08:21:40,293 log Not Found: /favicon.ico
+WARNING 2026-04-07 08:24:58,622 log Not Found: /
+WARNING 2026-04-07 08:26:10,328 log Not Found: /api/forecast/
+WARNING 2026-04-07 08:28:22,775 log Method Not Allowed: /api/auth/login/
+WARNING 2026-04-07 09:51:59,419 config TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING 2026-04-07 09:51:59,420 config TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+WARNING 2026-04-07 09:51:59,430 saving_utils Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+WARNING 2026-04-07 09:51:59,430 saving_utils Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.
+INFO 2026-04-07 09:51:59,468 views LSTM PredictionService loaded successfully.
+INFO 2026-04-07 09:51:59,468 views LSTM PredictionService loaded successfully.
+WARNING 2026-04-07 09:55:39,732 log Unauthorized: /api/auth/login/
+WARNING 2026-04-07 10:11:42,246 log Unauthorized: /api/auth/login/
+WARNING 2026-04-07 10:12:48,788 log Unauthorized: /api/auth/login/
+WARNING 2026-04-07 10:14:31,738 log Unauthorized: /api/auth/login/
+WARNING 2026-04-07 10:54:38,445 log Unauthorized: /api/auth/profile/
+WARNING 2026-04-07 10:54:38,460 log Unauthorized: /api/auth/profile/

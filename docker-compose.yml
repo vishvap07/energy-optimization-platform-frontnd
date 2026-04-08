@@ -1,0 +1,74 @@
+version: '3.9'
+
+services:
+  # ─────────────────────────────────────────────────────
+  # PostgreSQL Database
+  # ─────────────────────────────────────────────────────
+  db:
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: energy_platform
+      POSTGRES_USER: energy_user
+      POSTGRES_PASSWORD: energy_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U energy_user -d energy_platform"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ─────────────────────────────────────────────────────
+  # Django Backend
+  # ─────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      SECRET_KEY: change-me-in-production
+      DEBUG: "True"
+      DB_ENGINE: django.db.backends.postgresql
+      DB_NAME: energy_platform
+      DB_USER: energy_user
+      DB_PASSWORD: energy_pass
+      DB_HOST: db
+      DB_PORT: "5432"
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/app
+      - ./ml_models:/ml_models
+      - ./data:/data
+      - ./logs:/logs
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py runserver 0.0.0.0:8000"
+
+  # ─────────────────────────────────────────────────────
+  # React Frontend (Vite dev server)
+  # ─────────────────────────────────────────────────────
+  frontend:
+    image: node:20-alpine
+    working_dir: /app
+    restart: unless-stopped
+    depends_on:
+      - backend
+    environment:
+      VITE_API_URL: http://localhost:8000/api
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    command: sh -c "npm install && npm run dev -- --host 0.0.0.0"
+
+volumes:
+  postgres_data:
