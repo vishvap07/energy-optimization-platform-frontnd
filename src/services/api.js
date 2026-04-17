@@ -30,23 +30,23 @@ api.interceptors.response.use(
   (response) => response,
   async (error) => {
     const originalRequest = error.config;
-    
+
     // If error is 401 and we haven't tried to refresh yet
-    if (error.response?.status === 401 && !originalRequest._retry) {
+    // AND if the request was NOT a login attempt (to avoid redirect loops)
+    const isLoginRequest = originalRequest.url.includes('/auth/login');
+
+    if (error.response?.status === 401 && !originalRequest._retry && !isLoginRequest) {
       originalRequest._retry = true;
-      
+
       try {
         const refreshToken = localStorage.getItem('refresh_token');
         if (!refreshToken) throw new Error('No refresh token');
-        
-        // This relies on the simplejwt token refresh endpoint which we didn't explicitly
-        // define in urls, but assume it exists or user must log in again.
-        // For simplicity, we just log out if 401 occurs in this demo pipeline.
-        
+
+        // Logic for token refresh would go here
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
         window.location.href = '/login';
-        
+
       } catch (err) {
         localStorage.removeItem('access_token');
         localStorage.removeItem('refresh_token');
@@ -54,7 +54,7 @@ api.interceptors.response.use(
         return Promise.reject(err);
       }
     }
-    
+
     return Promise.reject(error);
   }
 );

@@ -22,7 +22,8 @@ export default function LoginPage({ setUser }) {
       setUser(profile);
       navigate('/dashboard');
     } catch (err) {
-      setError(err.response?.data?.non_field_errors?.[0] || 'Invalid credentials or server error.');
+      const msg = err.response?.data?.detail || err.response?.data?.message || err.response?.data?.error || 'Invalid credentials or server error.';
+      setError(msg);
     } finally {
       setLoading(false);
     }
