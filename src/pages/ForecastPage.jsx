@@ -41,17 +41,24 @@ export default function ForecastPage() {
           <h1 className="text-2xl font-bold text-gray-900">Demand Forecasting</h1>
           <p className="text-gray-500 mt-1">AI-powered LSTM predictions for the next 14 days.</p>
         </div>
-        <div className="flex items-center gap-2 text-sm text-gray-500 bg-white px-3 py-1.5 rounded-full border border-gray-200 shadow-sm">
-          <Network className="h-4 w-4 text-indigo-500" />
-          <span>{forecast?.model_version || 'v1.0'}</span>
-          {usedLstm ? (
-            <span className="flex items-center gap-1 text-emerald-600 font-medium">
-              <CheckCircle className="h-3.5 w-3.5" /> Live
-            </span>
-          ) : (
-            <span className="flex items-center gap-1 text-yellow-600 font-medium">
-              <AlertTriangle className="h-3.5 w-3.5" /> Synthetic
-            </span>
+        <div className="flex flex-col items-end gap-2">
+          <div className="flex items-center gap-2 text-sm text-gray-500 bg-white px-3 py-1.5 rounded-full border border-gray-200 shadow-sm">
+            <Network className="h-4 w-4 text-indigo-500" />
+            <span>{forecast?.model_version || 'v1.0'}</span>
+            {usedLstm ? (
+              <span className="flex items-center gap-1 text-emerald-600 font-medium">
+                <CheckCircle className="h-3.5 w-3.5" /> Live
+              </span>
+            ) : (
+              <span className="flex items-center gap-1 text-yellow-600 font-medium">
+                <AlertTriangle className="h-3.5 w-3.5" /> Synthetic
+              </span>
+            )}
+          </div>
+          {forecast?.source === 'hugging_face' && (
+            <div className="flex items-center gap-1.5 px-3 py-1 bg-gradient-to-r from-yellow-500/10 to-orange-500/10 border border-yellow-200 rounded-lg text-xs font-bold text-yellow-700 animate-pulse">
+              🚀 Powered by Hugging Face Space
+            </div>
           )}
         </div>
       </div>

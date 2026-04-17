@@ -93,6 +93,9 @@ export default function UserDashboard() {
             {summary?.demo && (
               <span className="ml-1 px-2 py-0.5 bg-yellow-100 text-yellow-700 text-xs rounded-full font-medium">Demo data</span>
             )}
+            {summary?.source === 'hugging_face' && (
+              <span className="ml-1 px-2 py-0.5 bg-indigo-50 text-indigo-700 text-xs rounded-full font-bold border border-indigo-100">AI: Hugging Face</span>
+            )}
           </div>
         </div>
       </div>
