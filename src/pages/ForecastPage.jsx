@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import forecastService from '../services/forecastService';
 import ForecastChart from '../components/Charts/ForecastChart';
-import { Network, Calendar, TrendingDown, CheckCircle, AlertTriangle } from 'lucide-react';
+import { Network, Calendar, TrendingDown, CheckCircle, AlertTriangle, ShieldCheck, Zap, Activity } from 'lucide-react';
 
 export default function ForecastPage() {
   const [data, setData] = useState({ forecast: null, loading: true, error: null });
@@ -81,31 +81,46 @@ export default function ForecastPage() {
           <p className="text-sm opacity-80 mt-2">Daily resolution predictions</p>
         </div>
 
-        <div className="card p-6 border-t-4 border-t-emerald-500">
-          <h3 className="text-sm font-medium text-gray-500">Model Accuracy (MAPE)</h3>
-          {mape != null ? (
-            <>
-              <p className="text-3xl font-bold text-gray-900 mt-2">{mape.toFixed(1)}%</p>
-              <div className="mt-4 flex items-center gap-2 text-sm font-medium text-emerald-600">
-                <TrendingDown className="h-4 w-4" />
-                <span>From latest training run</span>
-              </div>
-            </>
-          ) : (
-            <p className="text-sm text-gray-400 mt-2">Train the model to see accuracy</p>
+        <div className="card p-6 border-t-4 border-t-emerald-500 shadow-sm hover:shadow-md transition-shadow">
+          <div className="flex justify-between items-start">
+            <div>
+              <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider">Model Accuracy</h3>
+              {mape != null ? (
+                <p className="text-3xl font-bold text-gray-900 mt-2">{mape.toFixed(1)}%</p>
+              ) : (
+                <p className="text-sm text-gray-400 mt-2 font-medium italic">Pending training...</p>
+              )}
+            </div>
+            <div className="p-2 bg-emerald-50 rounded-lg">
+              <ShieldCheck className="h-6 w-6 text-emerald-600" />
+            </div>
+          </div>
+          {mape != null && (
+            <div className="mt-4 flex items-center gap-2 text-xs font-bold text-emerald-700 bg-emerald-50 w-fit px-2.5 py-1 rounded-full border border-emerald-100">
+              <TrendingDown className="h-3.5 w-3.5" />
+              <span>MAPE (Lower is better)</span>
+            </div>
           )}
         </div>
 
-        <div className="card p-6 border-t-4 border-t-blue-500">
-          <h3 className="text-sm font-medium text-gray-500">Predicted Max Demand</h3>
-          {maxPredicted != null ? (
-            <>
-              <p className="text-3xl font-bold text-gray-900 mt-2">{maxPredicted.toLocaleString()} kWh</p>
-              <p className="text-sm text-gray-500 mt-4">Peak day in 14-day window</p>
-            </>
-          ) : (
-            <p className="text-sm text-gray-400 mt-2">No forecast data yet</p>
-          )}
+        <div className="card p-6 border-t-4 border-t-blue-500 shadow-sm hover:shadow-md transition-shadow">
+          <div className="flex justify-between items-start">
+            <div>
+              <h3 className="text-xs font-bold text-gray-500 uppercase tracking-wider">Peak Demand</h3>
+              {maxPredicted != null ? (
+                <p className="text-3xl font-bold text-gray-900 mt-2">{maxPredicted.toLocaleString()} <span className="text-lg font-medium text-gray-500">kW</span></p>
+              ) : (
+                <p className="text-sm text-gray-400 mt-2 italic">Awaiting data...</p>
+              )}
+            </div>
+            <div className="p-2 bg-blue-50 rounded-lg">
+              <Zap className="h-6 w-6 text-blue-600" />
+            </div>
+          </div>
+          <div className="mt-4 flex items-center gap-2 text-xs font-bold text-blue-700 bg-blue-50 w-fit px-2.5 py-1 rounded-full border border-blue-100">
+            <Activity className="h-3.5 w-3.5" />
+            <span>14-day projection</span>
+          </div>
         </div>
       </div>
 
