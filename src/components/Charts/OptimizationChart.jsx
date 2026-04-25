@@ -3,19 +3,25 @@ import {
   CategoryScale,
   LinearScale,
   BarElement,
+  LineElement,
+  PointElement,
   Title,
   Tooltip,
   Legend,
+  Filler
 } from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import { Chart } from 'react-chartjs-2';
 
 ChartJS.register(
   CategoryScale,
   LinearScale,
   BarElement,
+  LineElement,
+  PointElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  Filler
 );
 
 export default function OptimizationChart({ data }) {
@@ -28,7 +34,12 @@ export default function OptimizationChart({ data }) {
     },
     scales: {
       y: {
-        title: { display: true, text: 'Demand (kW)' }
+        beginAtZero: true,
+        title: { display: true, text: 'Demand (kW)', font: { weight: 'bold' } },
+        grid: { color: 'rgba(0,0,0,0.05)' }
+      },
+      x: {
+        grid: { display: false }
       }
     }
   };
@@ -37,23 +48,32 @@ export default function OptimizationChart({ data }) {
     labels: data.map(d => d.label),
     datasets: [
       {
-        label: 'Original Demand',
-        data: data.map(d => d.demand_before_kw),
-        backgroundColor: 'rgba(156, 163, 175, 0.5)', // Gray-400
-        borderRadius: 4,
+        type: 'line',
+        label: 'Optimized Demand (Target)',
+        data: data.map(d => d.demand_after_kw),
+        borderColor: '#10b981', // Emerald-500
+        borderWidth: 3,
+        pointRadius: 0,
+        pointHoverRadius: 5,
+        tension: 0.4,
+        fill: true,
+        backgroundColor: 'rgba(16, 185, 129, 0.05)',
+        zIndex: 2,
       },
       {
-        label: 'Optimized Demand (Peak Shaved)',
-        data: data.map(d => d.demand_after_kw),
-        backgroundColor: 'rgba(16, 185, 129, 0.8)', // Emerald-500 (Green)
+        type: 'bar',
+        label: 'Original Demand',
+        data: data.map(d => d.demand_before_kw),
+        backgroundColor: 'rgba(156, 163, 175, 0.3)', // Gray-400
         borderRadius: 4,
+        zIndex: 1,
       }
     ]
   };
 
   return (
-    <div className="h-[350px] w-full">
-      <Bar options={options} data={chartData} />
+    <div className="h-[380px] w-full">
+      <Chart type='bar' options={options} data={chartData} />
     </div>
   );
 }
