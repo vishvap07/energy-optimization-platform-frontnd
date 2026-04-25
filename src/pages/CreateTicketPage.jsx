@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { ArrowLeft, Save, AlertCircle } from 'lucide-react';
+import { ArrowLeft, Save, AlertCircle, Info } from 'lucide-react';
 import ticketService from '../services/ticketService';
 
 export default function CreateTicketPage() {
@@ -94,28 +94,18 @@ export default function CreateTicketPage() {
               >
                 <option value="hardware">Hardware/Sensor Issue</option>
                 <option value="software">Platform/Software Bug</option>
+                <option value="safety">Safety & Emergency</option>
                 <option value="billing">Billing Inquiry</option>
                 <option value="other">Other</option>
               </select>
             </div>
           </div>
 
-          <div>
-            <label className="block text-sm font-medium leading-6 text-gray-900">
-              Priority
-            </label>
-            <div className="mt-2">
-              <select
-                value={formData.priority}
-                onChange={(e) => setFormData({...formData, priority: e.target.value})}
-                className="input-field"
-              >
-                <option value="low">Low - General Inquiry</option>
-                <option value="medium">Medium - Non-critical Issue</option>
-                <option value="high">High - System Degradation</option>
-                <option value="critical">Critical - Complete Outage</option>
-              </select>
-            </div>
+          <div className="flex items-center gap-3 p-3 bg-indigo-50 border border-indigo-100 rounded-lg h-fit mt-auto">
+            <Info className="h-5 w-5 text-indigo-600 shrink-0" />
+            <p className="text-xs text-indigo-700 leading-tight">
+              <strong>Auto-Priority:</strong> Our system will analyze your issue and assign priority automatically based on urgency.
+            </p>
           </div>
         </div>
 
