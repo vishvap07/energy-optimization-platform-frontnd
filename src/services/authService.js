@@ -19,7 +19,15 @@ class AuthService {
     return response.data;
   }
 
-  logout() {
+  async logout() {
+    const refreshToken = localStorage.getItem('refresh_token');
+    if (refreshToken) {
+      try {
+        await api.post('/auth/logout/', { refresh: refreshToken });
+      } catch (error) {
+        console.error('Logout error:', error);
+      }
+    }
     localStorage.removeItem('access_token');
     localStorage.removeItem('refresh_token');
   }
